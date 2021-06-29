@@ -6,16 +6,15 @@ def sum(seq):
     else:
         return seq[0] + sum(seq[1:])
 
-
-#Fold Right function definition 
-
+#Fold Right function definition. if the list seq ist empty the initial value will be init.
+#if list is not empty the funtion output will be: foldr f z (x:xs) = f x (foldr f z xs)
 def foldr(func, init, seq):
     if not seq:
         return init
     else:
         return func(seq[0], foldr(func, init, seq[1:]))
 
-#Output Using the funktion foldr (\a b->b). if Seq empty returns 0
+#Output Sum using the funktion foldr 
 def sum_with_foldr(seq):
     return foldr(lambda seqval, acc: seqval + acc, 0, seq)
 
